@@ -8,8 +8,11 @@ A continuación vamos a explicar cómo instalar el proyecto
 git clone https://github.com/aliciapj/django_polls.git
 ```
 
-2. Entramos en la carpeta descargada `djangopolls` y creamos el entorno virtual con el comando:
-
+2. Entramos en la carpeta descargada `django_polls` y creamos el entorno virtual con el comando:
+```
+cd django_polls
+python3 -m venv .venv
+```
 
 3. Activamos el entorno virtual
 
