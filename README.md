@@ -46,7 +46,7 @@ python manage.py runserver
 
 ## Cómo instalar el proyecto en una máquina remota con Fabric
 
-1. Instala la librería de Fabric
+1. Instala la librería de Fabric desde el repositorio de PIP
 ```
 pip install fabric
 ```
