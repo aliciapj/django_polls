@@ -100,6 +100,18 @@ def migrate(ctx):
         conn.run(f"{VENV_PYTHON} manage.py migrate")
 
 @task
+def loaddata(ctx):
+    print("loading data from fixtures...")
+
+    if isinstance(ctx, Connection):
+        conn = ctx
+    else:
+        conn = get_connection(ctx)
+
+    with conn.cd(PROJECT_PATH):
+        conn.run(f"{VENV_PYTHON} manage.py loaddata fixtures/polls_data.json")
+
+@task
 def deploy(ctx):
     conn = get_connection(ctx)
     if conn is None:
@@ -110,3 +122,4 @@ def deploy(ctx):
     pull(conn, branch="main")
     create_venv(conn)
     migrate(conn)
+    loaddata(conn)
