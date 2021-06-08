@@ -64,3 +64,42 @@ def development(ctx):
 ```
 fab development deploy
 ```
+
+## Cómo instalar el proyecto en una máquina remota con Fabric
+
+1. Instala la librería de Fabric desde el repositorio de PIP
+```
+pip install fabric
+```
+
+2. Comprueba la ip del servidor remoto y las credenciales en las línea 11-15 del script `fabfile.py`
+```python
+@task
+def development(ctx):
+    ctx.user = 'vagrant'
+    ctx.host = '192.168.33.10'
+    ctx.connect_kwargs = {"password": "vagrant"}
+```
+
+3. Ejecuta el script con el siguiente comando
+```
+fab development deploy
+```
+
+## Cómo aprovisionar una máquina y desplegar el proyecto con Ansible
+
+1. Instala Ansible en el sistema operativo  
+https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html
+
+2. Instala la librería de Ansible desde el repositorio de PIP
+```
+pip install ansible
+```
+
+3. Comprueba la configuración de variables del fichero `ansible/vars.yml` y ajusta las que necesites
+
+4. Ejecuta el script con el siguiente comando
+```
+cd ansible  # solo si estas en otra carpeta en la terminal
+ansible-playbook -i hosts provision.yml --user=vagrant --ask-pass
+```
