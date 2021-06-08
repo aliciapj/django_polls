@@ -5,28 +5,6 @@ project_name: django_polls
 # the base path to install to. You should not need to change this.
 install_root: /ansible
 
-# the python module path to your project's wsgi file. E.g. for a directory
-# layout like this (assuming `django_polls` is the project_name and top level
-# directory name):
-# django_polls
-# ├── django_polls
-# │   ├── asgi.py
-# │   ├── settings.py
-# │   ├── urls.py
-# │   ├── wsgi.py
-# ├── polls
-# │   ├── apps
-# │   ├── __init__.py
-# │   ├── migrations/
-# │   ├── static/
-# │   ├── templates/
-# │   ├── admin.py
-# │   ├── apps.py
-# │   ├── tests.py
-# │   ├── urls.py
-# │   ├── views.py
-# │   └── models.py
-# └── manage.py
 # the correct wsgi_module value would be `django_polls.wsgi`
 wsgi_module: django_polls.wsgi
 
@@ -55,15 +33,12 @@ static_root: "{{ install_root }}/{{ project_name }}/polls/static"
 # the dns name or names (space separated) for your server
 server_name: django-polls.com www.django-polls.com
 
-
 # apt packages, you should not need to change this unless you have packages
 # listed in your requirements.txt that depend on system packages.
 system_packages:
   - git
-  - nginx
-  - gunicorn3
   - python3-pip
   - python3-dev
+  - nginx
+  - gunicorn3
   - supervisor
-
-# vim:ft=ansible:
