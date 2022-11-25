@@ -34,7 +34,7 @@ python manage.py migrate
 python manage.py loaddata fixtures/polls_data.json
 ```
 
-8. Arrancamos el servidor
+7. Arrancamos el servidor
 ```
 python manage.py runserver
 ```
